@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisioDesign — Digital Design Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset and Variables */
+        :root {
+            --color-white: #FFFFFF;
+            --color-text: #1E1E1E;
+            --color-accent-blue: #2D89EF;
+            --color-accent-yellow: #FFB400;
+            --color-light-gray: #F4F4F4;
+            --max-width: 1200px;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 32px;
+            --spacing-lg: 64px;
+            --spacing-xl: 96px;
+            --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --radius-default: 8px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--color-text);
+            background-color: var(--color-white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--color-text);
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; margin-bottom: var(--spacing-md); }
+        h3 { font-size: 1.5rem; margin-bottom: var(--spacing-sm); }
+
+        /* Utility/Layout */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-md);
+            }
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.5rem; }
+        }
+        
+        .section {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Buttons and Links */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s;
+            border: none;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent-blue);
+            color: var(--color-white);
+            box-shadow: 0 4px 15px rgba(45, 137, 239, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: #2671c7; /* Slightly darker blue */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 137, 239, 0.5);
+        }
+        
+        .btn:focus-visible {
+            outline: 2px solid var(--color-accent-yellow);
+            outline-offset: 3px;
+        }
+
+        /* Header/Navigation */
+        .header {
+            background-color: var(--color-white);
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid var(--color-light-gray);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--color-accent-blue);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--color-text);
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: none; /* Hidden on mobile */
+        }
+
+        .nav-menu a {
+            color: var(--color-text);
+            text-decoration: none;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--color-accent-blue);
+        }
+        
+        .nav-menu a:focus-visible {
+            outline: 2px solid var(--color-accent-yellow);
+            outline-offset: 3px;
+        }
+
+        .menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-text);
+            padding: 5px;
+        }
+
+        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+            .nav-menu {
+                display: flex;
+                gap: var(--spacing-md);
+            }
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 60px; /* Adjust based on header height */
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: var(--color-white);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 999;
+            padding: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        .mobile-menu li {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .mobile-menu a {
+            font-size: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            color: var(--color-text);
+            text-decoration: none;
+            display: block;
+            padding: var(--spacing-sm);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--color-accent-blue);
+        }
+
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: var(--spacing-lg) 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: var(--color-accent-blue);
+            margin-bottom: var(--spacing-md);
+            font-weight: 600;
+        }
+
+        .hero-image {
+            margin-top: var(--spacing-md);
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius-default);
+            box-shadow: var(--shadow-subtle);
+        }
+        
+        @media (min-width: 768px) {
+            .hero {
+                padding: var(--spacing-xl) 0;
+            }
+        }
+
+        /* Value Cards */
+        .value-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .value-card {
+            padding: var(--spacing-md);
+            border-radius: var(--radius-default);
+            background-color: var(--color-white);
+            box-shadow: var(--shadow-subtle);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            font-size: 2rem;
+            color: var(--color-accent-yellow);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        @media (min-width: 768px) {
+            .value-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Services Cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .service-card {
+            padding: var(--spacing-md);
+            border-radius: var(--radius-default);
+            border: 1px solid var(--color-light-gray);
+            background-color: var(--color-white);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--color-accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .service-icon {
+            font-size: 1.5rem;
+            color: var(--color-accent-blue);
+            margin-bottom: var(--spacing-xs);
+            display: inline-block;
+        }
+        
+        @media (min-width: 600px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+        }
+
+        .portfolio-item {
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: var(--radius-default);
+            box-shadow: var(--shadow-subtle);
+            position: relative;
+            transition: box-shadow 0.3s;
+        }
+
+        .portfolio-item:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-item img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+            color: var(--color-white);
+            padding: var(--spacing-sm);
+            font-size: 0.9rem;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .portfolio-item:hover .portfolio-caption {
+            opacity: 1;
+        }
+        
+        @media (min-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--spacing-md);
+            }
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: var(--spacing-md);
+            background-color: var(--color-light-gray);
+            border-radius: var(--radius-default);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 600;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #CCCCCC;
+            border-radius: var(--radius-default);
+            font-size: 1rem;
+            font-family: 'Open Sans', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: var(--color-accent-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(45, 137, 239, 0.2);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--color-text);
+            color: var(--color-white);
+            padding: var(--spacing-md) 0;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .footer-nav {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-nav a {
+            color: var(--color-white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: var(--color-accent-yellow);
+        }
+        
+        .footer-nav a:focus-visible {
+            outline: 2px solid var(--color-accent-yellow);
+            outline-offset: 3px;
+        }
+
+        /* Modal/Lightbox */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            padding: var(--spacing-sm);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .modal-content img {
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 90vh;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .modal-caption {
+            margin: 10px auto 0;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: var(--color-white);
+            padding: var(--spacing-xs);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: var(--color-white);
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus-visible {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        /* Toast/Success Message */
+        .toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #4CAF50;
+            color: var(--color-white);
+            text-align: center;
+            border-radius: var(--radius-default);
+            padding: 16px;
+            position: fixed;
+            z-index: 3000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+        }
+
+        .toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from {bottom: 0; opacity: 0;} 
+            to {bottom: 30px; opacity: 1;}
+        }
+
+        @keyframes fadeout {
+            from {bottom: 30px; opacity: 1;} 
+            to {bottom: 0; opacity: 0;}
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-content">
+            <a href="#hero" class="logo">Visio<span>Design</span></a>
+            
+            <nav class="desktop-nav" aria-label="Main Navigation">
+                <ul class="nav-menu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <button class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu" id="menuToggle">
+                &#9776; </button>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-labelledby="mobileMenuHeading">
+             <h2 id="mobileMenuHeading" class="sr-only">Mobile Menu</h2> <ul>
+                <li><a href="#about" class="mobile-nav-link">About</a></li>
+                <li><a href="#services" class="mobile-nav-link">Services</a></li>
+                <li><a href="#portfolio" class="mobile-nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="section hero">
+            <div class="container hero-content">
+                <h1>VisioDesign</h1>
+                <p class="hero-tagline">Bring Your Ideas Into Visuals</p>
+                <p>We craft compelling digital designs that communicate your brand's story effectively, from initial concept to final execution.</p>
+                <a href="#contact" class="btn btn-primary" role="button" data-scroll-to="#contact">Start Your Project</a>
+                
+                <div class="hero-image">
+                    <img src="https://via.placeholder.com/1000x500?text=VisioDesign+Hero+Image" alt="Abstract modern design workspace mockup" width="1000" height="500">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section" style="background-color: var(--color-light-gray);">
+            <div class="container text-center">
+                <h2>About Us</h2>
+                <p style="max-width: 800px; margin: 0 auto var(--spacing-md);">
+                    VisioDesign is a dedicated digital design studio focused on delivering high-quality, impactful visual solutions for businesses and individuals. We believe good design is strategic, and we're committed to making professional design accessible and easy.
+                </p>
+                
+                <div class="value-grid">
+                    <div class="value-card">
+                        <div class="value-icon" aria-hidden="true">💡</div>
+                        <h3>Creative Solutions</h3>
+                        <p>Innovative design thinking tailored to your unique market and objectives.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon" aria-hidden="true">🚀</div>
+                        <h3>Fast & Reliable</h3>
+                        <p>Efficient turnaround times without compromising on quality or attention to detail.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon" aria-hidden="true">💰</div>
+                        <h3>Affordable Pricing</h3>
+                        <p>Transparent and competitive pricing structures to fit your budget perfectly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div class="container text-center">
+                <h2>Our Services</h2>
+                <p style="max-width: 800px; margin: 0 auto var(--spacing-md);">
+                    We offer a comprehensive range of design services to ensure your brand always looks its best across all platforms.
+                </p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon" aria-hidden="true">🎨</div>
+                        <h3>Logo Design</h3>
+                        <p>Creating memorable and scalable brand identities from scratch.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon" aria-hidden="true">📰</div>
+                        <h3>Poster & Banner</h3>
+                        <p>Eye-catching print and digital marketing materials for campaigns and events.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon" aria-hidden="true">📱</div>
+                        <h3>Social Media Content</h3>
+                        <p>Engaging visuals optimized for all major social media platforms (posts, stories, ads).</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon" aria-hidden="true">💻</div>
+                        <h3>Presentation / UI Mockup</h3>
+                        <p>Professional pitch decks, or clean, functional UI/UX mockups for apps and websites.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section" style="background-color: var(--color-light-gray);">
+            <div class="container text-center">
+                <h2>Recent Work</h2>
+                <p style="max-width: 800px; margin: 0 auto var(--spacing-md);">
+                    A selection of our latest projects, showcasing our versatility and attention to detail. Click on any image to view a larger version.
+                </p>
+                
+                <div class="portfolio-grid">
+                    <figure class="portfolio-item" tabindex="0" data-caption="Modern Logo Concept for Tech Startup">
+                        <img src="https://via.placeholder.com/600x400?text=Project+1+Logo" alt="Portfolio Image: Modern Logo Concept" width="600" height="400">
+                        <figcaption class="portfolio-caption">Modern Logo Concept for Tech Startup</figcaption>
+                    </figure>
+                    <figure class="portfolio-item" tabindex="0" data-caption="Event Poster Design - Vibrant Style">
+                        <img src="https://via.placeholder.com/600x400?text=Project+2+Poster" alt="Portfolio Image: Event Poster Design" width="600" height="400">
+                        <figcaption class="portfolio-caption">Event Poster Design - Vibrant Style</figcaption>
+                    </figure>
+                    <figure class="portfolio-item" tabindex="0" data-caption="Social Media Carousel Ad Design">
+                        <img src="https://via.placeholder.com/600x400?text=Project+3+Social" alt="Portfolio Image: Social Media Ad Design" width="600" height="400">
+                        <figcaption class="portfolio-caption">Social Media Carousel Ad Design</figcaption>
+                    </figure>
+                    <figure class="portfolio-item" tabindex="0" data-caption="Minimalist UI Mockup for E-commerce App">
+                        <img src="https://via.placeholder.com/600x400?text=Project+4+UI+Mockup" alt="Portfolio Image: Minimalist UI Mockup" width="600" height="400">
+                        <figcaption class="portfolio-caption">Minimalist UI Mockup for E-commerce App</figcaption>
+                    </figure>
+                    <figure class="portfolio-item" tabindex="0" data-caption="Brand Guideline Document Cover">
+                        <img src="https://via.placeholder.com/600x400?text=Project+5+Branding" alt="Portfolio Image: Brand Guideline Cover" width="600" height="400">
+                        <figcaption class="portfolio-caption">Brand Guideline Document Cover</figcaption>
+                    </figure>
+                    <figure class="portfolio-item" tabindex="0" data-caption="Infographic Design for Annual Report">
+                        <img src="https://via.placeholder.com/600x400?text=Project+6+Infographic" alt="Portfolio Image: Infographic Design" width="600" height="400">
+                        <figcaption class="portfolio-caption">Infographic Design for Annual Report</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container text-center">
+                <h2>Get In Touch</h2>
+                <p style="max-width: 800px; margin: 0 auto var(--spacing-md);">
+                    Ready to start your project? Fill out the form below and we'll get back to you within 24 hours.
+                </p>
+                
+                <form id="contactForm" class="contact-form" aria-label="Contact Form">
+                    <div class="form-group">
+                        <label for="name">Name <span aria-hidden="true">*</span></label>
+                        <input type="text" id="name" name="name" required aria-required="true" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email <span aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" required aria-required="true" placeholder="your.email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message <span aria-hidden="true">*</span></label>
+                        <textarea id="message" name="message" required aria-required="true" placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <nav aria-label="Footer Navigation">
+                <ul class="footer-nav">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                </ul>
+            </nav>
+            <p>&copy; 2025 VisioDesign. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalCaption" style="display: none;">
+      <span class="close-btn" id="modalClose" tabindex="0" role="button" aria-label="Close image lightbox">&times;</span>
+      <div class="modal-content">
+        <img id="modalImage" src="" alt="Enlarged Portfolio Image">
+        <p id="modalCaption" class="modal-caption"></p>
+      </div>
+    </div>
+    
+    <div id="successToast" class="toast" role="alert" aria-live="polite">
+        Message Sent Successfully! We'll be in touch soon.
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Mobile Menu Toggle ---
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+
+            menuToggle.addEventListener('click', () => {
+                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+                menuToggle.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('active');
+                mobileMenu.style.display = mobileMenu.classList.contains('active') ? 'flex' : 'none';
+            });
+            
+            // Close mobile menu on link click
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    mobileMenu.classList.remove('active');
+                    mobileMenu.style.display = 'none';
+                });
+            });
+
+
+            // --- Smooth Scroll for Navigation and CTA ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    // Only handle links that are NOT part of the mobile menu logic (already handled)
+                    if (this.classList.contains('mobile-nav-link')) return; 
+
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        // Standard smooth scroll
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Handle potential fixed header offset
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        if (targetId !== '#hero') {
+                            window.scrollBy(0, -headerHeight);
+                        }
+                    }
+                });
+            });
+            
+            // --- Contact Form Validation and Submission ---
+            const contactForm = document.getElementById('contactForm');
+            const successToast = document.getElementById('successToast');
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const nameInput = document.getElementById('name');
+                const emailInput = document.getElementById('email');
+                const messageInput = document.getElementById('message');
+                
+                // Simple Validation Check
+                let isValid = true;
+                
+                // Clear previous error states (minimal implementation)
+                [nameInput, emailInput, messageInput].forEach(input => {
+                    input.style.border = '1px solid #CCCCCC';
+                });
+                
+                if (nameInput.value.trim() === "") {
+                    nameInput.style.border = '2px solid red';
+                    isValid = false;
+                }
+                
+                // Basic email format check
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(emailInput.value.trim())) {
+                    emailInput.style.border = '2px solid red';
+                    isValid = false;
+                }
+                
+                if (messageInput.value.trim() === "") {
+                    messageInput.style.border = '2px solid red';
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // Log data to console
+                    const formData = {
+                        name: nameInput.value.trim(),
+                        email: emailInput.value.trim(),
+                        message: messageInput.value.trim()
+                    };
+                    console.log('Form Data Submitted (Simulated):', formData);
+                    
+                    // Show success toast
+                    successToast.classList.add('show');
+                    setTimeout(() => {
+                        successToast.classList.remove('show');
+                    }, 3000); // Hide after 3 seconds
+
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Re-apply original borders
+                    [nameInput, emailInput, messageInput].forEach(input => {
+                        input.style.border = '1px solid #CCCCCC';
+                    });
+                }
+            });
+
+
+            // --- Portfolio Modal/Lightbox ---
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalCaption = document.getElementById('modalCaption');
+            const closeBtn = document.getElementById('modalClose');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            portfolioItems.forEach(item => {
+                item.addEventListener('click', openModal);
+                item.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openModal.call(item);
+                    }
+                });
+            });
+
+            function openModal() {
+                const img = this.querySelector('img');
+                const captionText = this.getAttribute('data-caption');
+                
+                modal.style.display = "flex";
+                modal.setAttribute('aria-hidden', 'false');
+                modalImage.src = img.src.replace(/600x400\?text=/, '1200x800?text='); // Get a larger placeholder image
+                modalCaption.textContent = captionText;
+                
+                // Set focus to the close button for keyboard users
+                closeBtn.focus();
+            }
+
+            function closeModal() {
+                modal.style.display = "none";
+                modal.setAttribute('aria-hidden', 'true');
+            }
+
+            // Close button click
+            closeBtn.addEventListener('click', closeModal);
+            closeBtn.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    closeModal();
+                }
+            });
+
+            // Close when clicking outside the modal content
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.style.display === "flex") {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
