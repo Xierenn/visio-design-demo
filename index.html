@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VisioDesign — Digital Design Service</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
     <style>
         /* CSS Reset and Variables */
         :root {
@@ -23,7 +26,9 @@
             --radius-default: 8px;
         }
 
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -43,16 +48,28 @@
         }
 
         /* Typography */
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
             color: var(--color-text);
             line-height: 1.2;
         }
 
-        h1 { font-size: 2.5rem; }
-        h2 { font-size: 2rem; margin-bottom: var(--spacing-md); }
-        h3 { font-size: 1.5rem; margin-bottom: var(--spacing-sm); }
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
 
         /* Utility/Layout */
         .container {
@@ -60,15 +77,21 @@
             margin: 0 auto;
             padding: 0 var(--spacing-sm);
         }
-        
+
         @media (min-width: 768px) {
             .container {
                 padding: 0 var(--spacing-md);
             }
-            h1 { font-size: 3.5rem; }
-            h2 { font-size: 2.5rem; }
+
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
         }
-        
+
         .section {
             padding: var(--spacing-lg) 0;
         }
@@ -99,11 +122,12 @@
         }
 
         .btn-primary:hover {
-            background-color: #2671c7; /* Slightly darker blue */
+            background-color: #2671c7;
+            /* Slightly darker blue */
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(45, 137, 239, 0.5);
         }
-        
+
         .btn:focus-visible {
             outline: 2px solid var(--color-accent-yellow);
             outline-offset: 3px;
@@ -140,7 +164,8 @@
 
         .nav-menu {
             list-style: none;
-            display: none; /* Hidden on mobile */
+            display: none;
+            /* Hidden on mobile */
         }
 
         .nav-menu a {
@@ -153,7 +178,7 @@
         .nav-menu a:hover {
             color: var(--color-accent-blue);
         }
-        
+
         .nav-menu a:focus-visible {
             outline: 2px solid var(--color-accent-yellow);
             outline-offset: 3px;
@@ -173,6 +198,7 @@
             .menu-toggle {
                 display: none;
             }
+
             .nav-menu {
                 display: flex;
                 gap: var(--spacing-md);
@@ -182,7 +208,8 @@
         /* Mobile Menu Overlay */
         .mobile-menu {
             position: fixed;
-            top: 60px; /* Adjust based on header height */
+            top: 60px;
+            /* Adjust based on header height */
             right: 0;
             bottom: 0;
             left: 0;
@@ -252,7 +279,7 @@
             border-radius: var(--radius-default);
             box-shadow: var(--shadow-subtle);
         }
-        
+
         @media (min-width: 768px) {
             .hero {
                 padding: var(--spacing-xl) 0;
@@ -286,7 +313,7 @@
             color: var(--color-accent-yellow);
             margin-bottom: var(--spacing-xs);
         }
-        
+
         @media (min-width: 768px) {
             .value-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -319,7 +346,7 @@
             margin-bottom: var(--spacing-xs);
             display: inline-block;
         }
-        
+
         @media (min-width: 600px) {
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -359,7 +386,7 @@
             object-fit: cover;
             transition: transform 0.3s;
         }
-        
+
         .portfolio-item:hover img {
             transform: scale(1.05);
         }
@@ -369,7 +396,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
             color: var(--color-white);
             padding: var(--spacing-sm);
             font-size: 0.9rem;
@@ -381,14 +408,14 @@
         .portfolio-item:hover .portfolio-caption {
             opacity: 1;
         }
-        
+
         @media (min-width: 768px) {
             .portfolio-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: var(--spacing-md);
             }
         }
-        
+
         /* Contact Form */
         .contact-form {
             max-width: 600px;
@@ -408,7 +435,7 @@
             font-weight: 600;
         }
 
-        .form-group input, 
+        .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 10px;
@@ -419,18 +446,18 @@
             transition: border-color 0.3s, box-shadow 0.3s;
         }
 
-        .form-group input:focus, 
+        .form-group input:focus,
         .form-group textarea:focus {
             border-color: var(--color-accent-blue);
             outline: none;
             box-shadow: 0 0 0 3px rgba(45, 137, 239, 0.2);
         }
-        
+
         .form-group textarea {
             resize: vertical;
             min-height: 120px;
         }
-        
+
         /* Footer */
         .footer {
             background-color: var(--color-text);
@@ -457,7 +484,7 @@
         .footer-nav a:hover {
             color: var(--color-accent-yellow);
         }
-        
+
         .footer-nav a:focus-visible {
             outline: 2px solid var(--color-accent-yellow);
             outline-offset: 3px;
@@ -485,7 +512,7 @@
             max-width: 90%;
             max-height: 90%;
         }
-        
+
         .modal-content img {
             width: auto;
             max-width: 100%;
@@ -522,7 +549,7 @@
             text-decoration: none;
             cursor: pointer;
         }
-        
+
         /* Toast/Success Message */
         .toast {
             visibility: hidden;
@@ -547,70 +574,451 @@
         }
 
         @keyframes fadein {
-            from {bottom: 0; opacity: 0;} 
-            to {bottom: 30px; opacity: 1;}
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
         }
 
         @keyframes fadeout {
-            from {bottom: 30px; opacity: 1;} 
-            to {bottom: 0; opacity: 0;}
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+
+        /* ===== Statistics Section ===== */
+        .stats-section {
+            background: linear-gradient(135deg, #2D89EF 0%, #1a6de3 50%, #1557b0 100%);
+            padding: var(--spacing-lg) 0;
+            color: var(--color-white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: var(--spacing-sm);
+        }
+
+        .stat-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .stat-number {
+                font-size: 3rem;
+            }
+        }
+
+        /* ===== Pricing Section ===== */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--color-white);
+            border: 2px solid var(--color-light-gray);
+            border-radius: 12px;
+            padding: var(--spacing-md);
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--color-accent-blue);
+            background: linear-gradient(180deg, #eef5ff 0%, var(--color-white) 100%);
+            box-shadow: 0 8px 25px rgba(45, 137, 239, 0.15);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-accent-blue);
+            color: var(--color-white);
+            padding: 5px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            white-space: nowrap;
+        }
+
+        .pricing-price {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-accent-blue);
+            margin: var(--spacing-xs) 0 4px;
+        }
+
+        .pricing-period {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--color-light-gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li::before {
+            content: '\2713';
+            color: var(--color-accent-blue);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: repeat(3, 1fr);
+                align-items: start;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1.05);
+            }
+
+            .pricing-card.featured:hover {
+                transform: scale(1.05) translateY(-4px);
+            }
+        }
+
+        /* ===== Testimonials Section ===== */
+        .testimonials-scroll {
+            display: flex;
+            gap: var(--spacing-md);
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: var(--spacing-sm);
+            scrollbar-width: thin;
+        }
+
+        .testimonial-card {
+            min-width: 280px;
+            max-width: 340px;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            background: var(--color-white);
+            border-radius: 12px;
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--color-light-gray);
+            text-align: left;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--color-accent-blue);
+            color: var(--color-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .testimonial-info h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+            color: var(--color-text);
+        }
+
+        .testimonial-role {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .testimonial-stars {
+            color: var(--color-accent-yellow);
+            font-size: 1rem;
+            margin-bottom: var(--spacing-xs);
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #555;
+            font-style: italic;
+        }
+
+        @media (min-width: 768px) {
+            .testimonials-scroll {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                overflow-x: visible;
+            }
+
+            .testimonial-card {
+                min-width: unset;
+                max-width: unset;
+            }
+        }
+
+        /* ===== WhatsApp CTA Section ===== */
+        .whatsapp-section {
+            background: linear-gradient(135deg, #075e54 0%, #128c7e 50%, #25d366 100%);
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+            color: var(--color-white);
+        }
+
+        .whatsapp-section h2 {
+            color: var(--color-white);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .whatsapp-section p {
+            margin: 0 auto var(--spacing-md);
+            font-size: 1.05rem;
+            opacity: 0.95;
+            max-width: 600px;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--color-white);
+            color: #25d366;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-whatsapp svg {
+            width: 24px;
+            height: 24px;
+            fill: #25d366;
+        }
+
+        /* ===== Floating WhatsApp Button ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            z-index: 900;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: pulse-green 2s infinite;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            animation: none;
+        }
+
+        .whatsapp-float svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--color-white);
+        }
+
+        @keyframes pulse-green {
+            0% {
+                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 4px 24px rgba(37, 211, 102, 0.7);
+            }
+
+            100% {
+                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+        /* ===== Scroll Fade-In Animation ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== Scroll offset for sticky header ===== */
+        section[id] {
+            scroll-margin-top: 70px;
         }
     </style>
     <!-- Favicon / Logo di Tab -->
-<link rel="icon" href="assets/icons/VD.758Z.png" type="image/png">
+    <link rel="icon" href="assets/icons/VD.758Z.png" type="image/png">
 
 
 </head>
+
 <body>
 
     <header class="header">
         <div class="container nav-content">
             <a href="#hero" class="logo">Visio<span>Design</span></a>
-            
+
             <nav class="desktop-nav" aria-label="Main Navigation">
                 <ul class="nav-menu">
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            
-            <button class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu" id="menuToggle">
+
+            <button class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false"
+                aria-label="Toggle navigation menu" id="menuToggle">
                 &#9776; </button>
         </div>
-        
+
         <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-labelledby="mobileMenuHeading">
-             <h2 id="mobileMenuHeading" class="sr-only">Mobile Menu</h2> <ul>
+            <h2 id="mobileMenuHeading" class="sr-only">Mobile Menu</h2>
+            <ul>
                 <li><a href="#about" class="mobile-nav-link">About</a></li>
                 <li><a href="#services" class="mobile-nav-link">Services</a></li>
+                <li><a href="#pricing" class="mobile-nav-link">Pricing</a></li>
                 <li><a href="#portfolio" class="mobile-nav-link">Portfolio</a></li>
+                <li><a href="#testimonials" class="mobile-nav-link">Testimonials</a></li>
                 <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
             </ul>
         </div>
     </header>
 
     <main>
-        <div class="container hero-content" style="padding-top: 80px; padding-bottom: 80px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px;">
-    <h1>VisioDesign</h1>
-    <p class="hero-tagline">Bring Your Ideas Into Visuals</p>
-    <p>We craft compelling digital designs that communicate your brand's story effectively, from initial concept to final execution.</p>
-    <a href="#contact" class="btn btn-primary" role="button" data-scroll-to="#contact">Start Your Project</a>
-    
-    <div class="hero-image" style="margin-top: 40px;">
-        <img src="assets/images/hero.png" alt="Modern minimalist workspace with blue accent and tagline" width="1000" height="500">
-    </div>
-</div>
+        <div class="container hero-content"
+            style="padding-top: 80px; padding-bottom: 80px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+            <h1>VisioDesign</h1>
+            <p class="hero-tagline">Bring Your Ideas Into Visuals</p>
+            <p>We craft compelling digital designs that communicate your brand's story effectively, from initial concept
+                to final execution.</p>
+            <a href="#contact" class="btn btn-primary" role="button" data-scroll-to="#contact">Start Your Project</a>
 
+            <div class="hero-image" style="margin-top: 40px;">
+                <img src="assets/images/hero.png" alt="Modern minimalist workspace with blue accent and tagline"
+                    width="1000" height="500">
+            </div>
+        </div>
+
+        </section>
+
+        <section id="statistics" class="stats-section fade-in">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="200+">0+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="150+">0+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="4.9&#9733;">0.0</div>
+                        <div class="stat-label">Average Rating</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="24h">0h</div>
+                        <div class="stat-label">Response Time</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="about" class="section" style="background-color: var(--color-light-gray);">
             <div class="container text-center">
                 <h2>About Us</h2>
                 <p style="max-width: 800px; margin: 0 auto var(--spacing-md);">
-                    VisioDesign is a dedicated digital design studio focused on delivering high-quality, impactful visual solutions for businesses and individuals. We believe good design is strategic, and we're committed to making professional design accessible and easy.
+                    VisioDesign is a dedicated digital design studio focused on delivering high-quality, impactful
+                    visual solutions for businesses and individuals. We believe good design is strategic, and we're
+                    committed to making professional design accessible and easy.
                 </p>
-                
+
                 <div class="value-grid">
                     <div class="value-card">
                         <div class="value-icon" aria-hidden="true">💡</div>
@@ -635,9 +1043,10 @@
             <div class="container text-center">
                 <h2>Our Services</h2>
                 <p style="max-width: 800px; margin: 0 auto var(--spacing-md);">
-                    We offer a comprehensive range of design services to ensure your brand always looks its best across all platforms.
+                    We offer a comprehensive range of design services to ensure your brand always looks its best across
+                    all platforms.
                 </p>
-                
+
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-icon" aria-hidden="true">🎨</div>
@@ -663,28 +1072,93 @@
             </div>
         </section>
 
+        <section id="pricing" class="section fade-in">
+            <div class="container text-center">
+                <h2>Simple, Transparent Pricing</h2>
+                <p style="max-width: 800px; margin: 0 auto var(--spacing-md);">
+                    Affordable design packages for every budget. No hidden fees, no surprises.
+                </p>
+
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Starter</h3>
+                        <div class="pricing-price">Rp 50K</div>
+                        <div class="pricing-period">per design</div>
+                        <ul class="pricing-features">
+                            <li>1 Design Concept</li>
+                            <li>2 Revisions</li>
+                            <li>JPG &amp; PNG Files</li>
+                            <li>3-Day Delivery</li>
+                            <li>Social Media Sizes</li>
+                        </ul>
+                        <a href="https://wa.me/6281234567890?text=Hi%2C%20I'm%20interested%20in%20the%20Starter%20package"
+                            class="btn btn-primary" style="width: 100%;" target="_blank" rel="noopener noreferrer">Get
+                            Started</a>
+                    </div>
+
+                    <div class="pricing-card featured">
+                        <div class="pricing-badge">Most Popular</div>
+                        <h3>Professional</h3>
+                        <div class="pricing-price">Rp 150K</div>
+                        <div class="pricing-period">per design</div>
+                        <ul class="pricing-features">
+                            <li>3 Design Concepts</li>
+                            <li>Unlimited Revisions</li>
+                            <li>All File Formats</li>
+                            <li>2-Day Delivery</li>
+                            <li>Print &amp; Digital Ready</li>
+                            <li>Source File Included</li>
+                        </ul>
+                        <a href="https://wa.me/6281234567890?text=Hi%2C%20I'm%20interested%20in%20the%20Professional%20package"
+                            class="btn btn-primary" style="width: 100%;" target="_blank" rel="noopener noreferrer">Get
+                            Started</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3>Business</h3>
+                        <div class="pricing-price">Rp 350K</div>
+                        <div class="pricing-period">per project</div>
+                        <ul class="pricing-features">
+                            <li>5 Design Concepts</li>
+                            <li>Unlimited Revisions</li>
+                            <li>All File Formats</li>
+                            <li>1-Day Priority Delivery</li>
+                            <li>Brand Guidelines</li>
+                            <li>Dedicated Support</li>
+                            <li>Commercial License</li>
+                        </ul>
+                        <a href="https://wa.me/6281234567890?text=Hi%2C%20I'm%20interested%20in%20the%20Business%20package"
+                            class="btn btn-primary" style="width: 100%;" target="_blank" rel="noopener noreferrer">Get
+                            Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="portfolio" class="section" style="background-color: var(--color-light-gray);">
             <div class="container text-center">
                 <h2>Recent Work</h2>
                 <p style="max-width: 800px; margin: 0 auto var(--spacing-md);">
-                    A selection of our latest projects, showcasing our versatility and attention to detail. Click on any image to view a larger version.
+                    A selection of our latest projects, showcasing our versatility and attention to detail. Click on any
+                    image to view a larger version.
                 </p>
-                
+
                 <div class="portfolio-grid">
                     <figure class="portfolio-item" tabindex="0" data-caption="Modern Logo Concept for Tech Startup">
-                        <img src="assets/images/Modern Logo Concept for Tech Startup.png"600" height="400">
+                        <img src="assets/images/Modern Logo Concept for Tech Startup.png" width="600" height="400">
                         <figcaption class="portfolio-caption">Modern Logo Concept for Tech Startup</figcaption>
                     </figure>
                     <figure class="portfolio-item" tabindex="0" data-caption="Event Poster Design - Vibrant Style">
-                        <img src="assets/images/Event Poster Design - Vibrant Style.png"600" height="400">
+                        <img src="assets/images/Event Poster Design - Vibrant Style.png" width="600" height="400">
                         <figcaption class="portfolio-caption">Event Poster Design - Vibrant Style</figcaption>
                     </figure>
                     <figure class="portfolio-item" tabindex="0" data-caption="Social Media Carousel Ad Design">
-                        <img src="assets/images/Social Media Carousel Ad Design.png"600" height="400">
+                        <img src="assets/images/Social Media Carousel Ad Design.png" width="600" height="400">
                         <figcaption class="portfolio-caption">Social Media Carousel Ad Design</figcaption>
                     </figure>
                     <figure class="portfolio-item" tabindex="0" data-caption="Minimalist UI Mockup for E-commerce App">
-                        <img src="assets/images/Minimalist UI Mockup for E-commerce App.836Z.png" alt="Portfolio Image: Minimalist UI Mockup" width="600" height="400">
+                        <img src="assets/images/Minimalist UI Mockup for E-commerce App.836Z.png"
+                            alt="Portfolio Image: Minimalist UI Mockup" width="600" height="400">
                         <figcaption class="portfolio-caption">Minimalist UI Mockup for E-commerce App</figcaption>
                     </figure>
                     <figure class="portfolio-item" tabindex="0" data-caption="Brand Guideline Document Cover">
@@ -692,9 +1166,61 @@
                         <figcaption class="portfolio-caption">Brand Guideline Document Cover</figcaption>
                     </figure>
                     <figure class="portfolio-item" tabindex="0" data-caption="Infographic Design for Annual Report">
-                        <img src="assets/images/Infographic Design for Annual Report.061Z.png" alt="Portfolio Image: Infographic Design" width="600" height="400">
+                        <img src="assets/images/Infographic Design for Annual Report.061Z.png"
+                            alt="Portfolio Image: Infographic Design" width="600" height="400">
                         <figcaption class="portfolio-caption">Infographic Design for Annual Report</figcaption>
                     </figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section fade-in">
+            <div class="container text-center">
+                <h2>What Our Clients Say</h2>
+                <p style="max-width: 800px; margin: 0 auto var(--spacing-md);">
+                    Don't just take our word for it — hear from some of our satisfied clients.
+                </p>
+
+                <div class="testimonials-scroll">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">AR</div>
+                            <div class="testimonial-info">
+                                <h4>Andi Rahman</h4>
+                                <div class="testimonial-role">Startup Founder</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="testimonial-text">"VisioDesign delivered our brand identity in just 2 days. The
+                            quality exceeded our expectations and the price was unbeatable. Highly recommended!"</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">SP</div>
+                            <div class="testimonial-info">
+                                <h4>Sarah Putri</h4>
+                                <div class="testimonial-role">Marketing Manager</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="testimonial-text">"We needed social media content fast and VisioDesign came through.
+                            Professional, responsive, and the designs always look amazing. Our go-to design partner."
+                        </p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">BK</div>
+                            <div class="testimonial-info">
+                                <h4>Budi Kurniawan</h4>
+                                <div class="testimonial-role">Student Organization</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="testimonial-text">"As a student org with a tight budget, VisioDesign was perfect. They
+                            understood our vision and created stunning event posters that really stood out."</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -705,7 +1231,7 @@
                 <p style="max-width: 800px; margin: 0 auto var(--spacing-md);">
                     Ready to start your project? Fill out the form below and we'll get back to you within 24 hours.
                 </p>
-                
+
                 <form id="contactForm" class="contact-form" aria-label="Contact Form">
                     <div class="form-group">
                         <label for="name">Name <span aria-hidden="true">*</span></label>
@@ -713,14 +1239,31 @@
                     </div>
                     <div class="form-group">
                         <label for="email">Email <span aria-hidden="true">*</span></label>
-                        <input type="email" id="email" name="email" required aria-required="true" placeholder="your.email@example.com">
+                        <input type="email" id="email" name="email" required aria-required="true"
+                            placeholder="your.email@example.com">
                     </div>
                     <div class="form-group">
                         <label for="message">Message <span aria-hidden="true">*</span></label>
-                        <textarea id="message" name="message" required aria-required="true" placeholder="Tell us about your project..."></textarea>
+                        <textarea id="message" name="message" required aria-required="true"
+                            placeholder="Tell us about your project..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
                 </form>
+            </div>
+        </section>
+
+        <section id="whatsapp-cta" class="whatsapp-section fade-in">
+            <div class="container">
+                <h2>Let's Chat on WhatsApp</h2>
+                <p>Have a project in mind? Get a free consultation and quick quote directly on WhatsApp.</p>
+                <a href="https://wa.me/6281234567890?text=Hi%2C%20I'd%20like%20to%20discuss%20a%20design%20project"
+                    class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Chat on WhatsApp
+                </a>
             </div>
         </section>
     </main>
@@ -737,22 +1280,24 @@
             <p>&copy; 2025 VisioDesign. All rights reserved.</p>
         </div>
     </footer>
-    
-    <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalCaption" style="display: none;">
-      <span class="close-btn" id="modalClose" tabindex="0" role="button" aria-label="Close image lightbox">&times;</span>
-      <div class="modal-content">
-        <img id="modalImage" src="" alt="Enlarged Portfolio Image">
-        <p id="modalCaption" class="modal-caption"></p>
-      </div>
+
+    <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalCaption"
+        style="display: none;">
+        <span class="close-btn" id="modalClose" tabindex="0" role="button"
+            aria-label="Close image lightbox">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Enlarged Portfolio Image">
+            <p id="modalCaption" class="modal-caption"></p>
+        </div>
     </div>
-    
+
     <div id="successToast" class="toast" role="alert" aria-live="polite">
         Message Sent Successfully! We'll be in touch soon.
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
+
             // --- Mobile Menu Toggle ---
             const menuToggle = document.getElementById('menuToggle');
             const mobileMenu = document.getElementById('mobileMenu');
@@ -764,7 +1309,7 @@
                 mobileMenu.classList.toggle('active');
                 mobileMenu.style.display = mobileMenu.classList.contains('active') ? 'flex' : 'none';
             });
-            
+
             // Close mobile menu on link click
             mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
@@ -779,10 +1324,10 @@
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     // Only handle links that are NOT part of the mobile menu logic (already handled)
-                    if (this.classList.contains('mobile-nav-link')) return; 
+                    if (this.classList.contains('mobile-nav-link')) return;
 
                     e.preventDefault();
-                    
+
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
 
@@ -792,7 +1337,7 @@
                             top: targetElement.offsetTop,
                             behavior: 'smooth'
                         });
-                        
+
                         // Handle potential fixed header offset
                         const headerHeight = document.querySelector('.header').offsetHeight;
                         if (targetId !== '#hero') {
@@ -801,38 +1346,38 @@
                     }
                 });
             });
-            
+
             // --- Contact Form Validation and Submission ---
             const contactForm = document.getElementById('contactForm');
             const successToast = document.getElementById('successToast');
 
-            contactForm.addEventListener('submit', function(e) {
+            contactForm.addEventListener('submit', function (e) {
                 e.preventDefault();
-                
+
                 const nameInput = document.getElementById('name');
                 const emailInput = document.getElementById('email');
                 const messageInput = document.getElementById('message');
-                
+
                 // Simple Validation Check
                 let isValid = true;
-                
+
                 // Clear previous error states (minimal implementation)
                 [nameInput, emailInput, messageInput].forEach(input => {
                     input.style.border = '1px solid #CCCCCC';
                 });
-                
+
                 if (nameInput.value.trim() === "") {
                     nameInput.style.border = '2px solid red';
                     isValid = false;
                 }
-                
+
                 // Basic email format check
                 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailPattern.test(emailInput.value.trim())) {
                     emailInput.style.border = '2px solid red';
                     isValid = false;
                 }
-                
+
                 if (messageInput.value.trim() === "") {
                     messageInput.style.border = '2px solid red';
                     isValid = false;
@@ -846,7 +1391,7 @@
                         message: messageInput.value.trim()
                     };
                     console.log('Form Data Submitted (Simulated):', formData);
-                    
+
                     // Show success toast
                     successToast.classList.add('show');
                     setTimeout(() => {
@@ -855,7 +1400,7 @@
 
                     // Reset form
                     contactForm.reset();
-                    
+
                     // Re-apply original borders
                     [nameInput, emailInput, messageInput].forEach(input => {
                         input.style.border = '1px solid #CCCCCC';
@@ -884,12 +1429,12 @@
             function openModal() {
                 const img = this.querySelector('img');
                 const captionText = this.getAttribute('data-caption');
-                
+
                 modal.style.display = "flex";
                 modal.setAttribute('aria-hidden', 'false');
                 modalImage.src = img.src.replace(/600x400\?text=/, '1200x800?text='); // Get a larger placeholder image
                 modalCaption.textContent = captionText;
-                
+
                 // Set focus to the close button for keyboard users
                 closeBtn.focus();
             }
@@ -914,14 +1459,81 @@
                     closeModal();
                 }
             });
-            
+
             // Close on Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && modal.style.display === "flex") {
                     closeModal();
                 }
             });
+
+
+            // --- Statistics Counter Animation ---
+            const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+            let statsAnimated = false;
+
+            function animateCounters() {
+                if (statsAnimated) return;
+                statsAnimated = true;
+
+                statNumbers.forEach(num => {
+                    const targetStr = num.getAttribute('data-target');
+                    const targetNum = parseFloat(targetStr);
+                    const suffix = targetStr.replace(/[\d.]/g, '');
+                    const isDecimal = targetStr.indexOf('.') !== -1;
+                    const duration = 2000;
+                    const startTime = performance.now();
+
+                    function update(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        const current = eased * targetNum;
+
+                        if (isDecimal) {
+                            num.textContent = current.toFixed(1) + suffix;
+                        } else {
+                            num.textContent = Math.floor(current) + suffix;
+                        }
+
+                        if (progress < 1) {
+                            requestAnimationFrame(update);
+                        } else {
+                            num.textContent = targetStr;
+                        }
+                    }
+                    requestAnimationFrame(update);
+                });
+            }
+
+            // --- Scroll Fade-In & Counter Trigger ---
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        if (entry.target.id === 'statistics') {
+                            animateCounters();
+                        }
+                        scrollObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            fadeElements.forEach(el => scrollObserver.observe(el));
+
         });
     </script>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6281234567890?text=Hi%2C%20I'd%20like%20to%20discuss%20a%20design%20project"
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
 </body>
+
 </html>
